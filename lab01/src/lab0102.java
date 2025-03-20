@@ -7,7 +7,6 @@ public class lab0102 {
     private static final int board_size = 8;
     private static final int[][] board = new int[board_size][board_size];
 
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int row = sc.nextInt();
@@ -22,22 +21,21 @@ public class lab0102 {
 
         board[row][col] = 1;
 
-        solve(row, col, 2);
-
+        if (solve(row, col, 2)) {
         printBoard();
-
-
+        } else {
+            System.out.println("No solution exists");
     }
+        }
 
     public static boolean solve(int row, int col, int step) {
-        if (step >= board_size * board_size) {
-            return true;
-        }
+        if (step > board_size * board_size) {
+                return true;
+            }
 
         int[] nextMoves = new int[8];
         int[] accessibility = new int[8];
         int numMoves = 0;
-
         for (int i = 0; i < 8; i++) {
             int newRow = row + dx[i];
             int newCol = col + dy[i];
@@ -59,9 +57,8 @@ public class lab0102 {
                     int tempAccessibility = accessibility[j];
                     accessibility[j] = accessibility[j + 1];
                     accessibility[j + 1] = tempAccessibility;
-
-                }
-            }
+    }
+    }
         }
 
         for (int i = 0; i < numMoves; i++) {
@@ -73,15 +70,12 @@ public class lab0102 {
 
             if (solve(newRow, newCol, step + 1)) {
                 return true;
-            }
+                }
 
             board[newRow][newCol] = 0;
-
-        }
+            }
         return false;
-
-
-    }
+        }
 
     private static int getAccessibility(int row, int col) {
         int count = 0;
@@ -90,8 +84,8 @@ public class lab0102 {
             int newCol = col + dy[i];
             if (isValidPosition(newRow, newCol) && board[newRow][newCol] == 0) {
                 count++;
-            }
-        }
+    }
+}
         return count;
     }
 
