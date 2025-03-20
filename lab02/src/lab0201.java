@@ -1,32 +1,43 @@
 import java.util.Scanner;
 
-
 public class lab0201 {
-    private static int n;
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        int[] list = new int[n];
-        for (int i = 0; i < n; i++) {
-            list[i] = sc.nextInt();
-        }
-        int x = sc.nextInt();
-        System.out.println(locate(list, x, 0, n - 1));
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+        int[] array = readArray(scanner, size);
+        int target = scanner.nextInt();
+        scanner.close();
+
+        System.out.println(binarySearch(array, target));
     }
 
-    private static int locate(int[] list, int x, int start, int end) {
-        if (start > end) {
+    private static int[] readArray(Scanner scanner, int size) {
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
+    private static int binarySearch(int[] array, int target) {
+        return binarySearchRecursive(array, target, 0, array.length - 1);
+    }
+
+    private static int binarySearchRecursive(int[] array, int target, int left, int right) {
+        if (left > right) {
             return -1;
         }
-        int mid = start + (end - start) / 2;
-        if (list[mid] == x) {
+
+        int mid = left + (right - left) / 2;
+
+        if (array[mid] == target) {
             return mid;
-        } else if (list[mid] < x) {
-            return locate(list, x, mid + 1, end);
-        } else {
-            return locate(list, x, start, mid - 1);
         }
 
+        if (array[mid] < target) {
+            return binarySearchRecursive(array, target, mid + 1, right);
+        }
+
+        return binarySearchRecursive(array, target, left, mid - 1);
     }
 }

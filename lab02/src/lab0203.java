@@ -11,24 +11,21 @@ public class lab0203 {
             l[i] = sc.nextInt();
         }
 
-        System.out.println(quickSelect(l,0,l.length-1,k-1));
-
+        System.out.println(quickSelect(l, 0, l.length - 1, k - 1));
     }
 
     private static int quickSelect(int[] arr, int low, int high, int k) {
-        if (low == high) {
-            return arr[high];
-        }
-
+        while (low < high) {
         int pivotIndex = partition(arr, low, high);
-
         if (k == pivotIndex) {
             return arr[k];
         } else if (k < pivotIndex) {
-            return quickSelect(arr, low, pivotIndex - 1, k);
+                high = pivotIndex - 1;
         } else {
-            return quickSelect(arr, pivotIndex + 1, high, k);
+                low = pivotIndex + 1;
         }
+    }
+        return arr[low];
     }
 
     private static int partition(int[] arr, int low, int high) {
