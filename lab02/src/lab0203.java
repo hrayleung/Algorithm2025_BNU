@@ -26,20 +26,21 @@ public class lab0203 {
         // Loop until the correct partition index is found
         while (low < high) {
             // Partition the array and get the pivot index
-        int pivotIndex = partition(arr, low, high);
+            int pivotIndex = partition(arr, low, high);
 
             // If pivot index is the target k, return the element at that index
-        if (k == pivotIndex) {
-            return arr[k];
-        }
+            if (k == pivotIndex) {
+                return arr[k];
+            }
             // If k is less than pivot index, search in the left part of the array
             else if (k < pivotIndex) {
                 high = pivotIndex - 1;
-    }
+            }
+
             // If k is greater than pivot index, search in the right part of the array
             else {
                 low = pivotIndex + 1;
-    }
+            }
         }
         // Return the element at the found partition index
         return arr[low];
