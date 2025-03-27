@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Algorithm2025_BNU.iml" filepath="$PROJECT_DIR$/.idea/Algorithm2025_BNU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addition_note_on_Divide_and_Conquer/Template/Template.iml" filepath="$PROJECT_DIR$/addition_note_on_Divide_and_Conquer/Template/Template.iml" />
       <module fileurl="file://$PROJECT_DIR$/addition_note_on_Divide_and_Conquer/addition_note_on_Divide_and_Conquer.iml" filepath="$PROJECT_DIR$/addition_note_on_Divide_and_Conquer/addition_note_on_Divide_and_Conquer.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab01/lab01.iml" filepath="$PROJECT_DIR$/lab01/lab01.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab02/lab02.iml" filepath="$PROJECT_DIR$/lab02/lab02.iml" />
